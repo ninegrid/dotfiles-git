@@ -23,6 +23,8 @@ rmb = !sh -c 'git branch -D $1 && git push origin :$1' -
 who = shortlog -n -s --no-merges 
 cleanup = !git remote prune origin && git gc && git clean -dfx && git stash clear
 lg = log --graph --pretty=format:'%Cgreen%h%C(magenta) - %C(bold blue)%d%C(magenta) %s %Creset%C(yellow)(%cr) %C(bold cyan) <%an>%Creset' --abbrev-commit
+sta = "if() { git subtree add --prefix $2 $1 master --squash;}; f"
+stu = "if() { git subtree pull --prefix $2 $1 master --squash; }; f"
 
 [core]
 editor = vim
